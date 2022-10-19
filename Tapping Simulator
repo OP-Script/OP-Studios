@@ -127,15 +127,15 @@ if game.PlaceId == 9498006165 then
     MainTab:AddLabel("Comming Soon...")
     -- End
 
-    -- Hallowen
+    -- Halloween
 
-    local HallowenTab = Window:MakeTab({
-        Name = "Hallowen",
+    local HalloweenTab = Window:MakeTab({
+        Name = "Halloween",
         Icon = "rbxassetid://4483345998",
         PremiumOnly = false
     })
 
-    HallowenTab:AddToggle({
+    HalloweenTab:AddToggle({
         Name = "Auto Tab - (Candy)",
         Default = false,
         Callback = function(Value)
@@ -144,7 +144,16 @@ if game.PlaceId == 9498006165 then
         end    
     })
 
-    HallowenTab:AddLabel("Comming Soon...")
+    Tab:AddDropdown({
+        Name = "Halloween Egg",
+        Default = "Halloween Egg",
+        Options = {"Halloween Egg", "Orange Egg", "Hallow Egg"},
+        Callback = function(Value)
+            print(Value)
+        end    
+    })
+
+    HalloweenTab:AddLabel("Comming Soon...")
 
     -- End
     local PlayerTab = Window:MakeTab({

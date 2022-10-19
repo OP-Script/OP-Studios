@@ -177,7 +177,7 @@ if game.PlaceId == 9498006165 then
         Name = "WalkSpeed",
         Min = 0,
         Max = 50,
-        Default = 16,
+        Default = 25,
         Color = Color3.fromRGB(255,0,0),
         Increment = 1,
         ValueName = "WalkSpeed",

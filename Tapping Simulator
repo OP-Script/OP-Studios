@@ -115,16 +115,6 @@ if game.PlaceId == 9498006165 then
         end    
     })
 
-    MiscTab:AddDropdown({
-        Name = "Egg",
-        Default = "Starter",
-        Options = {"Starter", "Wood Egg", "Jungle Egg","Forest Egg","Bee Egg"},
-        Callback = function(Value)
-            _G.SelectEgg = Value
-            print(_G.SelectEgg)
-        end
-    })
-
     MainTab:AddTextbox({
         Name = "Rebirth Number - Beta",
         Default = "1",
@@ -135,6 +125,7 @@ if game.PlaceId == 9498006165 then
     })
 
     MainTab:AddLabel("Comming Soon...")
+
     -- End
 
     -- Halloween
@@ -152,6 +143,15 @@ if game.PlaceId == 9498006165 then
             _G.AutoCandy = Value
             AutoCandy()
         end    
+    })
+
+    HalloweenTab:AddToggle({
+        Name = "Auto Hatch",
+        Default = false,
+        Callback = function(Value)
+            _G.AutoHatch = Value
+            AutoHatch()
+        end
     })
 
     HalloweenTab:AddDropdown({
@@ -214,6 +214,16 @@ if game.PlaceId == 9498006165 then
         Callback = function(Value)
             _G.AutoHatch = Value
             AutoHatch()
+        end
+    })
+
+    MiscTab:AddDropdown({
+        Name = "Egg",
+        Default = "Starter",
+        Options = {"Starter", "Wood Egg", "Jungle Egg","Forest Egg","Bee Egg"},
+        Callback = function(Value)
+            _G.SelectEgg = Value
+            print(_G.SelectEgg)
         end
     })
 

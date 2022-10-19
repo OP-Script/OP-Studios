@@ -116,7 +116,7 @@ if game.PlaceId == 9498006165 then
     })
 
     MainTab:AddTextbox({
-        Name = "Rebirth Number",
+        Name = "Rebirth Number - Beta",
         Default = "1",
         TextDisappear = true,
         Callback = function(Value)

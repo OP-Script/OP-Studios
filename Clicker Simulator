@@ -1,0 +1,105 @@
+local Players = game:GetService("Players")
+local Player = game:GetService("Players").LocalPlayer
+
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+
+if game.PlaceId == 8884334497 then
+
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "⛏️ Mining Clicker Simulator", HidePremium = true, IntroText = "OP-Studios" , SaveConfig = false, ConfigFolder = "MainConfig"})
+
+    -- Loading
+
+    OrionLib:MakeNotification({
+        Name = "System",
+        Content = "Notification: Hub Loaded !",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+
+    -- End
+
+    -- Values
+
+    _G.AutoClick = true
+    _G.Speed = true
+    _G.AutoHatch = true
+    _G.SelectEgg = true
+
+    -- End
+
+    -- Funcions
+    
+    function AutoClicker()
+        while _G.AutoClick == true do
+            game:GetService("ReplicatedStorage").Remotes.Click:InvokeServer()
+            wait(0.0000000000000000000001)
+        end
+    end
+
+
+    function AutoHatch()
+        while _G.AutoHatch == true do
+            local args = {
+                [1] = _G.SelectEgg,
+                [2] = 1
+            }
+            
+            game:GetService("ReplicatedStorage").Remotes.buyEgg:InvokeServer(unpack(args))
+
+            wait(0.0000000000000000000001)            
+        end
+    end        
+
+    -- End
+
+    -- Main
+
+    local MainTab = Window:MakeTab({
+        Name = "Main",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    local AutoFarmingLabel = MainTab:AddSection({
+        Name = "Auto Farming"
+    })
+
+    MainTab:AddToggle({
+        Name = "Auto Click",
+        Default = false,
+        Callback = function(Value)
+            _G.AutoClick = Value
+            AutoClicker()
+        end    
+    })
+
+    local ShopLabel = MainTab:AddSection({
+        Name = "Shop"
+    })
+
+    MainTab:AddToggle({
+        Name = "Auto Hatch",
+        Default = false,
+        Callback = function(Value)
+            _G.AutoHatch = Value
+            AutoClicker()
+        end    
+    })
+
+    MainTab:AddDropdown({
+        Name = "Eggs",
+        Default = "",
+        Options = {"Starter Egg", "Spotted Egg", "Flower Egg"},
+        Callback = function(Value)
+            _G.SelectEgg = Value
+            print(_G.SelectEgg)
+        end    
+    })
+
+else
+    game.Players.LocalPlayer:Kick("Please Join Mining Clicker Simulator.")
+end
+
+OrionLib:Init()

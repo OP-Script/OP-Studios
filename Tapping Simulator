@@ -144,7 +144,7 @@ if game.PlaceId == 9498006165 then
         end    
     })
 
-    Tab:AddDropdown({
+    HalloweenTab:AddDropdown({
         Name = "Halloween Egg",
         Default = "Halloween Egg",
         Options = {"Halloween Egg", "Orange Egg", "Hallow Egg"},

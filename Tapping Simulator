@@ -1,0 +1,218 @@
+local Players = game:GetService("Players")
+local Player = game:GetService("Players").LocalPlayer
+
+local Character = Player.Character
+local Humanoid = Character.Humanoid
+
+if game.PlaceId == 9498006165 then
+
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({Name = "[HALLOWEEN] Tapping Simulator!", HidePremium = true, IntroText = "OP-Studios" , SaveConfig = false, ConfigFolder = "MainConfig"})
+
+    -- Loading
+
+    OrionLib:MakeNotification({
+        Name = "System",
+        Content = "Notification: Hub Loaded !",
+        Image = "rbxassetid://4483345998",
+        Time = 5
+    })
+
+    -- End
+
+    -- Values
+
+    _G.AutoTab = true
+    _G.AutoRebirth = true
+    _G.AutoHatch = true
+    _G.SelectEgg = true
+    _G.AutoCandy = true
+    _G.RebirthNumber = 1
+
+    -- End
+
+    
+
+    -- Funcinos
+
+    function AutoTab()
+        while _G.AutoTab  == true do
+            game:GetService("ReplicatedStorage").Events.Tap:FireServer()
+            wait(.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
+        end
+    end
+    
+    function AutoRebirth()
+        while _G.Rebirth == true do
+            local args = {
+                [1] = _G.RebirthNumber
+            }
+            
+            game:GetService("ReplicatedStorage").Events.Rebirth:FireServer(unpack(args))
+            
+            wait(1)
+        end
+    end
+
+    function AutoHatch()
+        while _G.AutoHatch == true do
+                        
+            local args = {
+                [1] = {},
+                [2] = _G.SelectEgg,
+                [3] = 1
+            }
+            
+            game:GetService("ReplicatedStorage").Events.HatchEgg:InvokeServer(unpack(args))
+            
+
+            wait(.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
+        end
+    end
+
+    function AutoCandy()
+        while _G.AutoCandy == true do
+
+            game:GetService("ReplicatedStorage").Events.Tap:FireServer(5)
+
+            wait(.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
+        end
+    end
+    
+    -- End
+
+    -- MainTab
+    local MainTab = Window:MakeTab({
+        Name = "Main",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    MainTab:AddToggle({
+        Name = "Auto Tab",
+        Default = false,
+        Callback = function(Value)
+            _G.AutoTab = Value
+            AutoTab()
+        end    
+    })
+
+    MainTab:AddToggle({
+        Name = "Auto Rebirth",
+        Default = false,
+        Callback = function(Value)
+            if _G.AutoTab == true then
+                OrionLib:MakeNotification({
+                    Name = "System",
+                    Content = "Notification: Please Turn AutoTab Off",
+                    Image = "rbxassetid://4483345998",
+                    Time = 5
+                })
+            else
+                _G.Rebirth = Value
+                AutoRebirth()
+            end
+        end    
+    })
+
+    MainTab:AddTextbox({
+        Name = "Rebirth Number",
+        Default = "1",
+        TextDisappear = true,
+        Callback = function(Value)
+            _G.RebirthNumber = Value
+        end	  
+    })
+
+    MainTab:AddLabel("Comming Soon...")
+    -- End
+
+    -- Hallowen
+
+    local HallowenTab = Window:MakeTab({
+        Name = "Hallowen",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    HallowenTab:AddToggle({
+        Name = "Auto Tab - (Candy)",
+        Default = false,
+        Callback = function(Value)
+            _G.AutoCandy = Value
+            AutoCandy()
+        end    
+    })
+
+    HallowenTab:AddLabel("Comming Soon...")
+
+    -- End
+    local PlayerTab = Window:MakeTab({
+        Name = "Player",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    PlayerTab:AddSlider({
+        Name = "WalkSpeed",
+        Min = 0,
+        Max = 50,
+        Default = 16,
+        Color = Color3.fromRGB(255,0,0),
+        Increment = 1,
+        ValueName = "WalkSpeed",
+        Callback = function(Value)
+            Humanoid.WalkSpeed = Value
+        end    
+    })
+
+    PlayerTab:AddSlider({
+        Name = "WalkSpeed",
+        Min = 0,
+        Max = 95,
+        Default = 50,
+        Color = Color3.fromRGB(255,0,0),
+        Increment = 1,
+        ValueName = "JumpPower",
+        Callback = function(Value)
+            Humanoid.UseJumpPower = true
+            Humanoid.JumpPower = Value
+        end    
+    })
+
+    -- End
+
+    local MiscTab = Window:MakeTab({
+        Name = "Misc",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    MiscTab:AddToggle({
+        Name = "Auto Hatch",
+        Default = false,
+        Callback = function(Value)
+            _G.AutoHatch = Value
+            AutoHatch()
+        end
+    })  
+
+    MiscTab:AddDropdown({
+        Name = "Egg",
+        Default = "Starter",
+        Options = {"Starter", "Wood Egg", "Jungle Egg","Forest Egg","Bee Egg"},
+        Callback = function(Value)
+            _G.SelectEgg = Value
+            print(_G.SelectEgg)
+        end
+    })
+
+    MiscTab:AddLabel("Comming Soon...")
+
+    -- End
+
+else
+    game.Players.LocalPlayer:Kick("Please Join Tapping Simulator.")
+end
+
+OrionLib:Init()

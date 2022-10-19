@@ -156,7 +156,7 @@ if game.PlaceId == 9498006165 then
 
     HalloweenTab:AddDropdown({
         Name = "Halloween Egg",
-        Default = "None",
+        Default = "Halloween Egg",
         Options = {"Halloween Egg", "Orange Egg", "Hallow Egg"},
         Callback = function(Value)
             _G.SelectEgg = Value
@@ -177,7 +177,7 @@ if game.PlaceId == 9498006165 then
         Name = "WalkSpeed",
         Min = 0,
         Max = 50,
-        Default = 25,
+        Default = 16,
         Color = Color3.fromRGB(255,0,0),
         Increment = 1,
         ValueName = "WalkSpeed",
@@ -219,7 +219,7 @@ if game.PlaceId == 9498006165 then
 
     MiscTab:AddDropdown({
         Name = "Egg",
-        Default = "None",
+        Default = "Starter",
         Options = {"Starter", "Wood Egg", "Jungle Egg","Forest Egg","Bee Egg"},
         Callback = function(Value)
             _G.SelectEgg = Value
@@ -230,6 +230,16 @@ if game.PlaceId == 9498006165 then
     MiscTab:AddLabel("Comming Soon...")
 
     -- End
+    
+    -- Islands
+
+    local IslandsTab = Window:MakeTab({
+        Name = "Islands",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+
+    IslandsTab:AddLabel("Comming Soon...")
 
 else
     game.Players.LocalPlayer:Kick("Please Join Tapping Simulator.")

@@ -29,9 +29,6 @@ if game.PlaceId == 9498006165 then
     _G.AutoCandy = true
     _G.RebirthNumber = 1
 
-    _G.Teleport = true
-    _G.TeleportPlace = true
-
     -- End
 
     
@@ -80,15 +77,6 @@ if game.PlaceId == 9498006165 then
 
             wait(.0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
         end
-    end
-
-    function Teleporter()
-        local args = {
-            [1] = CFrame.new(-163.265839, 977.218018, -407.955505, 0.999839723, 5.00605557e-09, 0.0179022867, -5.82048676e-09, 1, 4.54410305e-08, -0.0179022867, -4.55379485e-08, 0.999839723)
-        }
-        
-        game:GetService("ReplicatedStorage").Events.Teleport:FireServer(unpack(args))
-        
     end
     
     -- End

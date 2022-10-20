@@ -7,7 +7,7 @@ local Humanoid = Character.Humanoid
 if game.PlaceId == 9498006165 then
 
     local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
-    local Window = OrionLib:MakeWindow({Name = "[HALLOWEEN] Tapping Simulator!", HidePremium = true, IntroText = "OP-Studios" , SaveConfig = false, ConfigFolder = "MainConfig"})
+    local Window = OrionLib:MakeWindow({Name = "[HALLOWEEN] Tapping Simulator!", HidePremium = true, IntroText = "OP Studios" , SaveConfig = false, ConfigFolder = "MainConfig"})
 
     -- Loading
 
@@ -189,7 +189,7 @@ if game.PlaceId == 9498006165 then
         Name = "WalkSpeed",
         Min = 0,
         Max = 50,
-        Default = 16,
+        Default = 25,
         Color = Color3.fromRGB(255,0,0),
         Increment = 1,
         ValueName = "WalkSpeed",

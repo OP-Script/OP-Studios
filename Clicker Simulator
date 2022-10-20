@@ -34,7 +34,7 @@ if game.PlaceId == 8884334497 then
     function AutoClicker()
         while _G.AutoClick == true do
             game:GetService("ReplicatedStorage").Remotes.Click:InvokeServer()
-            wait(0.0000000000000000000001)
+            wait(0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)
         end
     end
 
@@ -48,7 +48,7 @@ if game.PlaceId == 8884334497 then
             
             game:GetService("ReplicatedStorage").Remotes.buyEgg:InvokeServer(unpack(args))
 
-            wait(0.0000000000000000000001)            
+            wait(0.00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000001)            
         end
     end        
 
